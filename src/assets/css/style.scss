@@ -1,0 +1,353 @@
+//モジュール読み込み
+@import "./modules/**.scss";
+
+.wrap {
+  min-width: 830px;
+  @include sp {
+    min-width: 360px;
+  }
+}
+.container {
+  &__inner {
+    position: relative;
+  }
+}
+.logo {
+  position: absolute;
+  top: 25px;
+  left: 50px;
+  z-index: 2;
+  color: #fff;
+  font-size: 35px;
+}
+.kv {
+  margin-bottom: 150px;
+  @include sp {
+    margin-bottom: 50px;
+  }
+  &__inner {
+    padding: 100px 0;
+    background-color: #555;
+  }
+  &__txt {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #fff;
+    @include sp {
+      top: 80px;
+      font-size: 10px;
+    }
+  }
+  &__img {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #00ffff;
+    &-in {
+      width: 600px;
+      margin: 0 auto;
+      padding: 100px 0;
+      text-align: center;
+      @include sp {
+        width: 100%;
+        padding: 30px 0;
+      }
+    }
+  }
+  &__ttl {
+    font-size: 72px;
+    letter-spacing: 30px;
+    color: #fff;
+    @include sp {
+      font-size: 42px;
+      letter-spacing: 10px;
+    }
+  }
+  &__sub-ttl {
+    margin: 0 0 40px;
+    font-size: 24px;
+    @include sp {
+      margin: 0 0 20px;
+      font-size: 18px;
+    }
+  }
+}
+.btn-list {
+  display: flex;
+  justify-content: center;
+  @include sp {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .btn {
+    position: relative;
+    width: 240px;
+    height: 40px;
+    margin: 0 20px;
+    background-color: #333;
+    transition: opacity 0.3s ease-out 0s;
+    @include sp {
+      width: 75%;
+      margin: 0 auto 20px;
+    }
+    &:hover {
+      opacity: 0.4;
+      @include sp {
+        opacity: 1;
+      }
+    }
+    &__txt {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}
+.main {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+}
+.catch {
+  margin-bottom: 150px;
+  @include sp {
+    margin-bottom: 50px;
+  }
+  &__h {
+    margin-bottom: 30px;
+    font-size: 42px;
+    @include sp {
+      font-size: 22px;
+    }
+  }
+  &__sen {
+    line-height: 2.2em;
+    font-size: 18px;
+    font-weight: bold;
+    @include sp {
+      font-size: 14px;
+    }
+  }
+}
+.news {
+  margin-bottom: 150px;
+  @include sp {
+    margin-bottom: 50px;
+  }
+  &__h {
+    margin-bottom: 30px;
+    font-size: 42px;
+    @include sp {
+      font-size: 22px;
+    }
+  }
+  &-list {
+    margin-bottom: 30px;
+    text-align: left;
+    border-top: 2px solid #333;
+    border-bottom: 3px solid #333;
+    &__item {
+      position: relative;
+      padding: 20px 0;
+      font-size: 14px;
+      font-weight: bold;
+      border-bottom: 1px solid #333;
+      @include sp {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &:last-child {
+        border: none;
+      }
+      &:hover::before {
+        transform: scaleX(1);
+      }
+      &:hover::after {
+        transform: translate(0, -50%);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s;
+        @include sp {
+          display: none;
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        border-left: 15px solid #333;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        transform: translate(-5px, -50%);
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0s;
+        @include sp {
+          display: none;
+        }
+      }
+    }
+  }
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__date {
+    margin: 0 40px;
+    font-size: 12px;
+    @include sp {
+      margin: 0 10px 0 20px;
+      font-size: 10px;
+    }
+  }
+  &__more {
+    &-txt {
+      position: relative;
+      padding-left: 10px;
+      padding-right: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      &:hover::after {
+        transform: translate(0, -50%);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #333;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(-8px, -50%);
+        border-left: 15px solid #333;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        transition: transform 0.35s ease-out 0s;
+      }
+    }
+  }
+}
+.qa {
+  margin-bottom: 100px;
+  @include sp {
+    margin-bottom: 50px;
+  }
+  &__h {
+    margin-bottom: 30px;
+    font-size: 42px;
+    @include sp {
+      font-size: 22px;
+    }
+  }
+  &-list {
+    &__item {
+      &.is-open {
+        .qa__ttl::after {
+          transform: translateY(-50%) rotate(180deg);
+        }
+        .qa__content {
+          opacity: 1;
+          visibility: visible;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+  .qa__ttl {
+    position: relative;
+    padding: 20px 0;
+    background-color: #00ffff;
+    @include sp {
+      text-align: left;
+    }
+    cursor: pointer;
+    &:hover .qa__ttl-txt {
+      letter-spacing: 5px;
+      text-shadow: 2px 2px 2px #333;
+      @include sp {
+        letter-spacing: 0;
+        text-shadow: none;
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 30px;
+      border-top: 15px solid #333;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      transform: translateY(-50%) rotate(0deg);
+      transition: transform 0.4s ease-out 0s;
+    }
+    &-txt {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      transition: letter-spacing 0.4s ease-out 0s;
+      @include sp {
+        margin-left: 20px;
+        font-size: 12px;
+      }
+    }
+  }
+  .qa__content {
+    opacity: 0;
+    visibility: hidden;
+    line-height: 0;
+    padding: 20px;
+    transition: line-height 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0s, opacity 0.8s ease-in 0s;
+    background-color: #f5f5f5;
+  }
+}
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  background-color: #333;
+  .copyright {
+    color: #fff;
+    font-size: 10px;
+  }
+}
